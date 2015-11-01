@@ -1,0 +1,76 @@
+@import "compass";
+
+/*### Animation mixins ###*/
+@include keyframes(mk-anim-default){
+    0% {
+    	@include transform(rotate(0deg));
+    }
+    100% {
+    	@include transform(rotate(360deg));
+    }
+}
+@include keyframes(mk-anim-sleek){
+    0% {
+    	@include transform(rotate(0deg));
+    }
+    30% {
+    	@include transform(rotate(180deg));
+    }
+    100% {
+    	@include transform(rotate(360deg));
+    }
+}
+
+.panel-box{
+	border-radius: 0;
+	border: 0;
+	min-height: 180px;
+	position: relative;
+}
+
+.mk-spinner{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	&.mk-fixed{
+		position: fixed;
+		background: rgba(0,0,0,0.5);
+		z-index: 999;
+	}
+	&:before, &:after{
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -20px;
+		margin-left: -20px;
+		display: block;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		border: 2px solid #BFB323;
+		border-left-color: transparent; 
+		border-right-color: transparent;
+		@include animation(mk-anim-default 1250ms infinite linear reverse);
+	}
+	&:after{
+		margin-top: -8px;
+		margin-left: -8px;
+		width: 16px;
+		height: 16px;
+		border-color: #FFB40A;
+		border-top-color: transparent; 
+		border-bottom-color: transparent; 
+		@include animation(mk-anim-default 2s infinite linear);
+	}
+	&.spin-2{
+		&:before{
+			@include animation(mk-anim-sleek 1250ms infinite linear reverse);
+		}
+		&:after{
+			@include animation(mk-anim-sleek 1250ms infinite linear);
+		}
+	}
+}
