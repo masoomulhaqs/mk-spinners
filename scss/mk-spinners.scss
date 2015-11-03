@@ -20,6 +20,39 @@
     	@include transform(rotate(360deg));
     }
 }
+@include keyframes(mk-anim-motion){
+    0% {
+    	@include transform(rotate(0deg));
+    }
+    50% {
+    	@include transform(rotate(90deg));
+    }
+    100% {
+    	@include transform(rotate(360deg));
+    }
+}
+@include keyframes(mk-anim-motion-2){
+    0% {
+    	@include transform(rotate(0deg));
+    }
+    50% {
+    	@include transform(rotate(90deg));
+    }
+    100% {
+    	@include transform(rotate(360deg));
+    }
+}
+@include keyframes(mk-anim-motion-3){
+    0% {
+    	@include transform(rotate(0deg) scale(0.3));
+    }
+    50% {
+    	@include transform(rotate(180deg) scale(1));
+    }
+    100% {
+    	@include transform(rotate(360deg) scale(0.3));
+    }
+}
 
 .panel-box{
 	border-radius: 0;
@@ -34,10 +67,13 @@
 
 .mk-spinner{
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: auto;
+	position: relative;
+	display: inline-block;
+	border-radius: 50%;
 	&.mk-fixed{
 		position: fixed;
 		background: rgba(0,0,0,0.5);
@@ -71,13 +107,6 @@
 	}
 	&.spinner-2{
 		border: 2px solid transparent;
-		width: 50px;
-		height: 50px;
-		top: 50%;
-		left: auto;
-		position: relative;
-		display: inline-block;
-		border-radius: 50%;
 		border-right-color: #333;
 		border-bottom-color: #333;
 		&:before{
@@ -93,6 +122,68 @@
 			height: 28px;
 			margin-top: -14px;
 			margin-left: -14px;
+		}
+	}
+	&.spinner-3{
+		@extend .spinner-2;
+		&:before{
+			border-color: #23BF77;
+		}
+	}
+	&.spinner-4{
+		width: 2px;
+		background: #23BF77;
+		border-radius: 0;
+		margin-left: -1px;
+		&:before{
+			border-color: #23BF77;
+			width: 8px;
+			height: 8px;
+			margin-left: -4px;
+			margin-top: 0;
+			top: 100%;
+		}
+		&:after{
+			border-color: #23BF77;
+			width: 12px;
+			height: 12px;
+			margin-left: -6px;
+			margin-top: -6px;
+			bottom: 100%;
+			top: auto;
+		}
+	}
+	&.spinner-5{
+		@extend .spinner-2;
+	    border-color: #484848;
+	    border-style: dashed;
+		&:before{
+			border-color: transparent;
+			background: transparent;
+		}
+		&:after{
+			/*border-color: transparent;
+			background: #2196F3;*/
+			border-color: #B3B3B3 #A2A2A2 #808080 #717171;
+			background: transparent;
+			border-width: 1em;
+		}
+	}
+	&.spinner-6{
+		@extend .spinner-5;
+		border-color: #9DC9EC;
+		&:after{
+			border-color: #2196F3;
+			background: transparent;
+			width: auto;
+			height: auto;
+			margin-top: 0;
+			margin-left: 0;
+			padding: 5px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
 		}
 	}
 	&.spin-1{
@@ -126,6 +217,24 @@
 		}
 		&:after{
 			@include animation(mk-anim-default 1200ms infinite linear reverse);
+		}
+	}
+	&.spin-5{
+		@include animation(mk-anim-default 1200ms infinite linear reverse);
+		&:after{
+			@include animation(mk-anim-default 500ms infinite linear);
+		}
+	}
+	&.spin-6{
+		@include animation(mk-anim-motion 1200ms infinite linear reverse);
+	}
+	&.spin-7{
+		@include animation(mk-anim-motion-2 1200ms infinite linear);
+	}
+	&.spin-8{
+		@include animation(mk-anim-motion-3 1200ms infinite linear reverse);
+		&:after{
+			@include animation(mk-anim-motion-3 1200ms infinite linear);
 		}
 	}
 }
