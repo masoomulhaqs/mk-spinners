@@ -84,10 +84,12 @@
 .panel-box {
   border-radius: 0;
   border: 0;
+  position: relative;
+}
+.panel-box .panel-body {
   min-height: 180px;
-  .panel-body{
-    position: relative;
-  }
+  text-align: center;
+  padding: 20% 0;
 }
 
 .mk-spinner {
@@ -113,12 +115,10 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #BFB323;
+  border: 2px solid #23BF77;
   border-left-color: transparent;
   border-right-color: transparent;
-  -moz-animation: mk-anim-default 1250ms infinite linear reverse;
-  -webkit-animation: mk-anim-default 1250ms infinite linear reverse;
-  animation: mk-anim-default 1250ms infinite linear reverse;
+  /*@include animation(mk-anim-default 1250ms infinite linear reverse);*/
 }
 .mk-spinner:after {
   margin-top: -8px;
@@ -128,6 +128,37 @@
   border-color: #FFB40A;
   border-top-color: transparent;
   border-bottom-color: transparent;
+  /*@include animation(mk-anim-default  2s infinite linear);*/
+}
+.mk-spinner.spinner-2 {
+  border: 2px solid transparent;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: auto;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  border-right-color: #333;
+}
+.mk-spinner.spinner-2:before {
+  border-color: transparent;
+  border-right-color: #23BF77;
+}
+.mk-spinner.spinner-2:after {
+  border-color: transparent;
+  border-right-color: #FFB40A;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  margin-left: -14px;
+}
+.mk-spinner.spin-1:before {
+  -moz-animation: mk-anim-default 1250ms infinite linear reverse;
+  -webkit-animation: mk-anim-default 1250ms infinite linear reverse;
+  animation: mk-anim-default 1250ms infinite linear reverse;
+}
+.mk-spinner.spin-1:after {
   -moz-animation: mk-anim-default 2s infinite linear;
   -webkit-animation: mk-anim-default 2s infinite linear;
   animation: mk-anim-default 2s infinite linear;
@@ -141,4 +172,29 @@
   -moz-animation: mk-anim-sleek 1250ms infinite linear;
   -webkit-animation: mk-anim-sleek 1250ms infinite linear;
   animation: mk-anim-sleek 1250ms infinite linear;
+}
+.mk-spinner.spin-3:before {
+  -moz-animation: mk-anim-sleek 1250ms infinite linear;
+  -webkit-animation: mk-anim-sleek 1250ms infinite linear;
+  animation: mk-anim-sleek 1250ms infinite linear;
+}
+.mk-spinner.spin-3:after {
+  -moz-animation: mk-anim-sleek 1250ms infinite linear;
+  -webkit-animation: mk-anim-sleek 1250ms infinite linear;
+  animation: mk-anim-sleek 1250ms infinite linear;
+}
+.mk-spinner.spin-4 {
+  -moz-animation: mk-anim-default 1200ms infinite linear reverse;
+  -webkit-animation: mk-anim-default 1200ms infinite linear reverse;
+  animation: mk-anim-default 1200ms infinite linear reverse;
+}
+.mk-spinner.spin-4:before {
+  -moz-animation: mk-anim-default 600ms infinite linear;
+  -webkit-animation: mk-anim-default 600ms infinite linear;
+  animation: mk-anim-default 600ms infinite linear;
+}
+.mk-spinner.spin-4:after {
+  -moz-animation: mk-anim-default 1200ms infinite linear reverse;
+  -webkit-animation: mk-anim-default 1200ms infinite linear reverse;
+  animation: mk-anim-default 1200ms infinite linear reverse;
 }

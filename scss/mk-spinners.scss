@@ -24,8 +24,12 @@
 .panel-box{
 	border-radius: 0;
 	border: 0;
-	min-height: 180px;
 	position: relative;
+	.panel-body{
+		min-height: 180px;
+		text-align: center;
+		padding: 20% 0; 
+	}
 }
 
 .mk-spinner{
@@ -50,10 +54,10 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
-		border: 2px solid #BFB323;
+		border: 2px solid #23BF77;
 		border-left-color: transparent; 
 		border-right-color: transparent;
-		@include animation(mk-anim-default 1250ms infinite linear reverse);
+		/*@include animation(mk-anim-default 1250ms infinite linear reverse);*/
 	}
 	&:after{
 		margin-top: -8px;
@@ -63,7 +67,41 @@
 		border-color: #FFB40A;
 		border-top-color: transparent; 
 		border-bottom-color: transparent; 
-		@include animation(mk-anim-default 2s infinite linear);
+		/*@include animation(mk-anim-default  2s infinite linear);*/
+	}
+	&.spinner-2{
+		border: 2px solid transparent;
+		width: 50px;
+		height: 50px;
+		top: 50%;
+		left: auto;
+		position: relative;
+		display: inline-block;
+		border-radius: 50%;
+		border-right-color: #333;
+		border-bottom-color: #333;
+		&:before{
+			border-color: transparent;
+			border-right-color: #23BF77;
+			border-bottom-color: #23BF77;
+		}
+		&:after{
+			border-color: transparent;
+			border-right-color: #FFB40A;
+			border-bottom-color: #FFB40A;
+			width: 28px;
+			height: 28px;
+			margin-top: -14px;
+			margin-left: -14px;
+		}
+	}
+	&.spin-1{
+		&:before{
+			@include animation(mk-anim-default 1250ms infinite linear reverse);
+		}
+		&:after{
+			@include animation(mk-anim-default 2s infinite linear);
+		}
 	}
 	&.spin-2{
 		&:before{
@@ -71,6 +109,23 @@
 		}
 		&:after{
 			@include animation(mk-anim-sleek 1250ms infinite linear);
+		}
+	}
+	&.spin-3{
+		&:before{
+			@include animation(mk-anim-sleek 1250ms infinite linear);
+		}
+		&:after{
+			@include animation(mk-anim-sleek 1250ms infinite linear);
+		}
+	}
+	&.spin-4{
+		@include animation(mk-anim-default 1200ms infinite linear reverse);
+		&:before{
+			@include animation(mk-anim-default 600ms infinite linear);
+		}
+		&:after{
+			@include animation(mk-anim-default 1200ms infinite linear reverse);
 		}
 	}
 }
