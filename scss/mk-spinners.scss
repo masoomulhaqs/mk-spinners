@@ -155,6 +155,22 @@
 	}
 	&.spinner-5{
 		@extend .spinner-2;
+		border-color: #B3B3B3 #A2A2A2 #808080 #717171;
+		background: transparent;
+		border-width: 20px;
+		&:before{
+			border-color: transparent;
+			background: transparent;
+		}
+		&:after{
+			display: none;
+			/*border-color: transparent;
+			background: #2196F3;*/
+			/*border-width: 1em;*/
+		}
+	}
+	&.spinner-6{
+		@extend .spinner-2;
 	    border-color: #484848;
 	    border-style: dashed;
 		&:before{
@@ -169,8 +185,8 @@
 			border-width: 1em;
 		}
 	}
-	&.spinner-6{
-		@extend .spinner-5;
+	&.spinner-7{
+		@extend .spinner-6;
 		border-color: #9DC9EC;
 		&:after{
 			border-color: #2196F3;
