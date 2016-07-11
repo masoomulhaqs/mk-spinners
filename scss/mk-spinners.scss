@@ -1,69 +1,57 @@
 @import "compass";
 
 /*### Animation mixins ###*/
-@include keyframes(mk-anim-default){
-    0% {
-    	@include transform(rotate(0deg));
-    }
-    100% {
-    	@include transform(rotate(360deg));
-    }
+// @import "imports/_mixins.scss";
+// @import "imports/_animations.scss";
+@import "spinners/ripples.scss";
+@import "spinners/pie.scss";
+@import "spinners/ring.scss";
+@import "spinners/doublecircles.scss";
+@import "spinners/weight.scss";
+
+body{
+	background: #dcdcdc;
+	background: #151515;
 }
-@include keyframes(mk-anim-sleek){
-    0% {
-    	@include transform(rotate(0deg));
-    }
-    30% {
-    	@include transform(rotate(180deg));
-    }
-    100% {
-    	@include transform(rotate(360deg));
-    }
+
+h1{
+	color: #ffffff;
+	text-shadow: 2px 2px 0px #666;
+	text-shadow: 2px 2px 0px rgba(102, 102, 102, 0.59);
 }
-@include keyframes(mk-anim-motion){
-    0% {
-    	@include transform(rotate(0deg));
-    }
-    50% {
-    	@include transform(rotate(90deg));
-    }
-    100% {
-    	@include transform(rotate(360deg));
-    }
+
+.row{
+	margin-left: -6px;
+	margin-right: -6px;
 }
-@include keyframes(mk-anim-motion-2){
-    0% {
-    	@include transform(rotate(0deg));
-    }
-    50% {
-    	@include transform(rotate(90deg));
-    }
-    100% {
-    	@include transform(rotate(360deg));
-    }
-}
-@include keyframes(mk-anim-motion-3){
-    0% {
-    	@include transform(rotate(0deg) scale(0.3));
-    }
-    50% {
-    	@include transform(rotate(180deg) scale(1));
-    }
-    100% {
-    	@include transform(rotate(360deg) scale(0.3));
-    }
+
+[class^='col-'],
+[class*=' col-']{
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 .panel-box{
 	border-radius: 0;
 	border: 0;
 	position: relative;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1), -1px -1px 3px rgba(0,0,0,0.1);
+	background: #333;
+	background: rgba(255,255,255,0.15);
 	.panel-body{
-		min-height: 180px;
+		border-radius: 0;
+		height: 180px;
 		text-align: center;
-		padding: 20% 0; 
+		position: relative;
+	}
+	.panel-heading{
+		border-radius: 0;
 	}
 }
+
+// .mk-spinner-centered{
+// 	@include center-position(50px);
+// }
 
 .mk-spinner{
 	position: absolute;
@@ -71,9 +59,12 @@
 	height: 50px;
 	top: 50%;
 	left: auto;
-	position: relative;
+	// position: relative;
 	display: inline-block;
 	border-radius: 50%;
+	margin-top: -25px;
+	left: 50%;
+	margin-left: -25px;
 	&.mk-fixed{
 		position: fixed;
 		background: rgba(0,0,0,0.5);
@@ -202,55 +193,57 @@
 			top: 0;
 		}
 	}
-	&.spin-1{
-		&:before{
-			@include animation(mk-anim-default 1250ms infinite linear reverse);
-		}
-		&:after{
-			@include animation(mk-anim-default 2s infinite linear);
-		}
+}
+
+// SPIN CLASSES
+.spin-basic{
+	&:before{
+		@include animation(mk-anim-default 1250ms infinite linear reverse);
 	}
-	&.spin-2{
-		&:before{
-			@include animation(mk-anim-sleek 1250ms infinite linear reverse);
-		}
-		&:after{
-			@include animation(mk-anim-sleek 1250ms infinite linear);
-		}
+	&:after{
+		@include animation(mk-anim-default 2s infinite linear);
 	}
-	&.spin-3{
-		&:before{
-			@include animation(mk-anim-sleek 1250ms infinite linear);
-		}
-		&:after{
-			@include animation(mk-anim-sleek 1250ms infinite linear);
-		}
+}
+.spin-basic-ease{
+	&:before{
+		@include animation(mk-anim-sleek 1250ms infinite linear reverse);
 	}
-	&.spin-4{
+	&:after{
+		@include animation(mk-anim-sleek 1250ms infinite linear);
+	}
+}
+.spin-3{
+	&:before{
+		@include animation(mk-anim-sleek 1250ms infinite linear);
+	}
+	&:after{
+		@include animation(mk-anim-sleek 1250ms infinite linear);
+	}
+}
+.spin-4{
+	@include animation(mk-anim-default 1200ms infinite linear reverse);
+	&:before{
+		@include animation(mk-anim-default 600ms infinite linear);
+	}
+	&:after{
 		@include animation(mk-anim-default 1200ms infinite linear reverse);
-		&:before{
-			@include animation(mk-anim-default 600ms infinite linear);
-		}
-		&:after{
-			@include animation(mk-anim-default 1200ms infinite linear reverse);
-		}
 	}
-	&.spin-5{
-		@include animation(mk-anim-default 1200ms infinite linear reverse);
-		&:after{
-			@include animation(mk-anim-default 500ms infinite linear);
-		}
+}
+.spin-5{
+	@include animation(mk-anim-default 1200ms infinite linear reverse);
+	&:after{
+		@include animation(mk-anim-default 500ms infinite linear);
 	}
-	&.spin-6{
-		@include animation(mk-anim-motion 1200ms infinite linear reverse);
-	}
-	&.spin-7{
-		@include animation(mk-anim-motion-2 1200ms infinite linear);
-	}
-	&.spin-8{
-		@include animation(mk-anim-motion-3 1200ms infinite linear reverse);
-		&:after{
-			@include animation(mk-anim-motion-3 1200ms infinite linear);
-		}
+}
+.spin-6{
+	@include animation(mk-anim-motion 1200ms infinite linear reverse);
+}
+.spin-7{
+	@include animation(mk-anim-motion-2 1200ms infinite linear);
+}
+.spin-8{
+	@include animation(mk-anim-motion-3 1200ms infinite linear reverse);
+	&:after{
+		@include animation(mk-anim-motion-3 1200ms infinite linear);
 	}
 }

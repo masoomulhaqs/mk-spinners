@@ -1,0 +1,15 @@
+@mixin center-position($w: 30px, $h: $w){
+	// @if(!$h){
+	// 	$h: $w;
+	// }
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: $w;
+	height: $h;
+	top: 50%;
+	margin-top: -$h/2;
+	left: 50%;
+	margin-left: -$w/2;
+	z-index: 1;
+}

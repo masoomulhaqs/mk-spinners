@@ -1,0 +1,38 @@
+{
+  "name": "mk-spinners",
+  "version": "0.0.1",
+  "description": "Pure CSS spinners/loaders",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masoomulhaqs/mk-spinners.git"
+  },
+  "keywords": [
+    "spinners",
+    "loaders",
+    "css",
+    "css3"
+  ],
+  "author": "Masoom Ulhaq S",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masoomulhaqs/mk-spinners/issues"
+  },
+  "homepage": "https://github.com/masoomulhaqs/mk-spinners#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "jslint": "^0.9.6"
+  }
+}

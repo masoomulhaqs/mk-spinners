@@ -1,0 +1,13 @@
+@import "compass/css3";
+
+@include keyframes(easein) {
+    0% {
+        @include transform(rotate(0deg));
+    }
+    30%{
+        @include transform(rotate(180deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
