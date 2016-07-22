@@ -1,65 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="SpinnersApp">
 <head>
-	<title>MK Spinners by Masoom</title>
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	<link rel="stylesheet" href="./css/mk-spinners.css">
+	<title>MK Spinners by Masoom Shaik</title>
+	<!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/mk-spinners.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 </head>
-<body>
+<body data-ng-controller="MainCtrl">
 	<div class="container">
-		<h1 class="text-uppercase text-center">MK Spinners</h1>	
+		<h1 class="text-uppercase text-center">MK Spinners</h1>
 		<div class="row">
-			<div class="col-md-3">
-				<div class="panel panel-default panel-box">
-					<div class="panel-heading">
-						Ring
-					</div>
-					<div class="panel-body">
-						<div class="mk-spinner-centered mk-spinner-ring"></div>
+			<div class="col-md-7">
+				<div class="title-section">
+					<h4>How we look</h4>
+				</div>
+				<div class="row">
+					<div class="col-md-6" data-ng-repeat="spinner in spinners.results">
+						<div data-ng-include="'./app/partials/spinner-box.html'"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default panel-box">
-					<div class="panel-heading">
-						Pie
+			<div class="col-md-5">
+				<article>
+					<div class="title-section">
+						<h4>Easy if you know</h4>
 					</div>
-					<div class="panel-body">
-						<div class="mk-spinner-centered mk-spinner-pie"></div>
+					<div>
+						<p>On click of:</p>
+						<ul class="list-info">
+							<li>
+								<i class="fa fa-html5"></i> Copies <abbr title="Hyper Text Markup Language">HTML</abbr> code
+							</li>
+							<li>
+								<i class="fa fa-css3"></i> Copies <abbr title="Cascading Style Sheets">CSS</abbr> code
+							</li>
+							<li>
+								<i class="fa fa-copy"></i> Copies complete source code
+							</li>
+						</ul>
+						<p>for the respective spinner/loader.</p>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default panel-box">
-					<div class="panel-heading">
-						Ripple
+					<div class="title-section">
+						<h4>Download spinner CSS</h4>
 					</div>
-					<div class="panel-body">
-						<div class="mk-spinner-centered mk-spinner-ripple"></div>
+					<div>
+						<ul>
+							<li><a href><i class="fa fa-download"></i> mk-spinners.css</a></li>
+							<li><a href><i class="fa fa-download"></i> mk-spinners.min.css</a></li>
+							<li><a href><i class="fa fa-download"></i> mk-spinners.scss</a></li>
+						</ul>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default panel-box">
-					<div class="panel-heading">
-						Circles
+					<div class="title-section">
+						<h4 class="text-uppercase">HTML USAGE</h4>
 					</div>
-					<div class="panel-body">
-						<div class="mk-spinner-centered mk-spinner-doublecircle"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default panel-box">
-					<div class="panel-heading">
-						Weight
-					</div>
-					<div class="panel-body">
-						<div class="mk-spinner-centered mk-spinner-weight"></div>
-					</div>
-				</div>
+					<p>Syntax
+						<pre class="prettyprint linenums:4">&#x3C;div class=&#x22;{class-name}&#x22;&#x3E;&#x3C;/div&#x3E;</pre>
+					</p>
+					<p>Example
+						<pre class="prettyprint linenums:4">&#x3C;div class=&#x22;mk-spinner-ring&#x22;&#x3E;&#x3C;/div&#x3E;</pre>
+					</p>
+				</article>
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="./app/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+@import "../imports/_mixins.scss";
+@import "_boxesAnimation.scss";
+
+.mk-spinner-boxes{
+	&:before, &:after, &{
+		@include center-position(20px);
+	}
+	&{
+		// SECOND BUBBLE
+		background: #1DE9B6;
+	}
+	&:before, &:after{
+		margin-left: 0;
+		background: inherit;
+	}
+	&:before{
+		// FIRST BUBBLE
+		opacity: 0.5;
+		left: 100%;
+		@include animation(slideSecondBox 3s infinite 3s);
+	}
+	&:after{
+		// LAST BUBBLE
+		opacity: 0.2;
+		left: 200%;
+		@include animation(slideThirdBox 3s infinite);
+	}
+}

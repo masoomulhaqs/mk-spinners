@@ -8,6 +8,8 @@
 @import "spinners/ring.scss";
 @import "spinners/doublecircles.scss";
 @import "spinners/weight.scss";
+@import "spinners/bubbles.scss";
+@import "spinners/boxes.scss";
 
 body{
 	background: #dcdcdc;
@@ -36,8 +38,8 @@ h1{
 	border: 0;
 	position: relative;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1), -1px -1px 3px rgba(0,0,0,0.1);
-	background: #333;
-	background: rgba(255,255,255,0.15);
+	background: #383838;
+	// background: rgba(255,255,255,0.15);
 	.panel-body{
 		border-radius: 0;
 		height: 180px;
@@ -46,6 +48,9 @@ h1{
 	}
 	.panel-heading{
 		border-radius: 0;
+		background-color: #2b2b2b;
+		color: #fff;
+		border-color: #565656;
 	}
 }
 
@@ -245,5 +250,61 @@ h1{
 	@include animation(mk-anim-motion-3 1200ms infinite linear reverse);
 	&:after{
 		@include animation(mk-anim-motion-3 1200ms infinite linear);
+	}
+}
+
+
+
+.dropdown{
+	&-wrap{
+		position: relative;
+	}
+	&-trigger{
+		display: inline-block;
+		color: #fff !important;
+		padding: 0 10px;
+		&:focus{
+			background: #383838;
+			~ .dropdown-menu-custom{
+				display: block;
+				visibility: visible;
+				transform: translateY(0); 
+			}
+		}
+	}
+	&-menu-custom{
+		line-height: 1;
+		display: none;
+		visibility: hidden;
+		position: absolute;
+		min-width: 120px;
+	    right: 0;
+	    z-index: 1000;
+	    white-space: nowrap;
+		background: #8c8c8c;
+		padding: 1em 0;
+		box-shadow: 0 2px 0 rgba(21, 21, 21, 0.45);
+		transform: translateY(20px); 
+		transition: all 0.3s ease;
+		&:hover, &:focus{
+			display: block;
+			visibility: visible;
+			transform: translateY(0); 
+		}
+		ul{
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+			font-size: 10px;
+			a{
+				color: #fff;
+				display: block;
+				padding: 1em 2em;
+				text-decoration: none;
+				&:hover, &:focus{
+					background: #2b2b2b;
+				}
+			}
+		}
 	}
 }

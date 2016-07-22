@@ -1,0 +1,17 @@
+@import "compass/css3";
+
+@keyframes slideSecondBox{
+	0%	 { transform: translateX(0%); }
+	50%	 { transform: translateX(0%); }
+	60%	 { transform: translateX(0%); }
+	90%	 { transform: translateX(-100%); }
+	100% { transform: translateX(-100%); }
+}
+
+@keyframes slideThirdBox{
+	0%	 { transform: translateX(0%); }
+	50%	 { transform: translateX(-100%); }    
+	60%	 { transform: translateX(-100%); }   
+	90%	 { transform: translateX(-200%); }
+	100% { transform: translateX(-200%); } 
+}
