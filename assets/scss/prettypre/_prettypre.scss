@@ -1,0 +1,160 @@
+pre {
+    /* desert scheme ported from vim to google prettify */
+    &.prettyprint {
+        display: block;
+        background-color: #333;
+        border: 0 !important;
+        border-top: 15px solid #ccc !important;
+        padding: 0 !important;
+        border-radius: 3px !important;
+        box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+    }
+    .nocode {
+        background-color: none;
+        color: #000
+    }
+    .str {
+        color: #ffa0a0
+    }
+    /* string  - pink */
+    .kwd {
+        color: #f0e68c;
+        font-weight: bold
+    }
+    .com {
+        color: #87ceeb
+    }
+    /* comment - skyblue */
+    .typ {
+        color: #98fb98
+    }
+    /* type    - lightgreen */
+    .lit {
+        color: #cd5c5c
+    }
+    /* literal - darkred */
+    .pun {
+        color: #fff
+    }
+    /* punctuation */
+    .pln {
+        color: #fff
+    }
+    /* plaintext */
+    .tag {
+        color: #f0e68c;
+        color: #f21d41;
+        font-weight: bold
+    }
+    /* html/xml tag    - lightyellow */
+    .atn {
+        color: #bdb76b;
+        color: #86f352;
+        font-weight: bold
+    }
+    /* attribute name  - khaki */
+    .atv {
+        color: #ffa0a0;
+        color: #ffe60f;
+    }
+    /* attribute value - pink */
+    .dec {
+        color: #98fb98
+    }
+    /* decimal         - lightgreen */
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+
+ol {
+    &.linenums {
+        margin: 0;
+        padding-left: 50px;
+        color: #AEAEAE;
+        background: #2b2b2b;
+
+        li{
+            list-style-type: decimal !important;
+            background: #333333 !important;
+            padding-left: 20px;
+            &:first-child{
+                padding-top: 20px;
+            }
+            &:last-child{
+                padding-bottom: 20px;
+            }
+        }
+    }
+    /* IE indents via margin-left */
+}
+
+li {
+    &.L0,
+    &.L1,
+    &.L2,
+    &.L3,
+    &.L5,
+    &.L6,
+    &.L7,
+    &.L8 {
+        list-style-type: none;
+    }
+    // &.L1,
+    // &.L3,
+    // &.L5,
+    // &.L7,
+    // &.L9 {
+    //     background: transparent !important;
+    // }
+}
+
+@media print {
+    pre.prettyprint {
+        background-color: none
+    }
+    pre .str,
+    code .str {
+        color: #060
+    }
+    pre .kwd,
+    code .kwd {
+        color: #006;
+        font-weight: bold
+    }
+    pre .com,
+    code .com {
+        color: #600;
+        font-style: italic
+    }
+    pre .typ,
+    code .typ {
+        color: #404;
+        font-weight: bold
+    }
+    pre .lit,
+    code .lit {
+        color: #044
+    }
+    pre .pun,
+    code .pun {
+        color: #440
+    }
+    pre .pln,
+    code .pln {
+        color: #000
+    }
+    pre .tag,
+    code .tag {
+        color: #006;
+        font-weight: bold
+    }
+    pre .atn,
+    code .atn {
+        color: #404
+    }
+    pre .atv,
+    code .atv {
+        color: #060
+    }
+}

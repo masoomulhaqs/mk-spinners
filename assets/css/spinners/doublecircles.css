@@ -1,1 +1,12 @@
-@-moz-keyframes rotate{0%{-moz-transform:rotate(0deg);transform:rotate(0deg)}100%{-moz-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate{0%{-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.mk-spinner-doublecircle{background:transparent;-moz-animation:rotate 2s linear infinite;-webkit-animation:rotate 2s linear infinite;animation:rotate 2s linear infinite}.mk-spinner-doublecircle:after,.mk-spinner-doublecircle{border:3px solid;border-radius:50%;content:"";display:inline-block;position:absolute;width:50px;height:50px;top:50%;margin-top:-25px;left:50%;margin-left:-25px;z-index:1}.mk-spinner-doublecircle{border-color:#1DE9B6 rgba(0,0,0,0.07) #1DE9B6 rgba(0,0,0,0.07)}.mk-spinner-doublecircle:after{border-color:transparent #EEFF41 transparent #EEFF41;-moz-animation:rotate 6s linear infinite;-webkit-animation:rotate 6s linear infinite;animation:rotate 6s linear infinite}
+@-moz-keyframes rotate{0%{-moz-transform:rotate(0);transform:rotate(0)}
+100%{-moz-transform:rotate(360deg);transform:rotate(360deg)}
+}
+@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+@keyframes rotate{0%{-moz-transform:rotate(0);-ms-transform:rotate(0);-webkit-transform:rotate(0);transform:rotate(0)}
+100%{-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+.mk-spinner-doublecircle,.mk-spinner-doublecircle:after{border:3px solid;border-radius:50%;content:"";display:inline-block;position:absolute;width:50px;height:50px;top:50%;margin-top:-25px;left:50%;margin-left:-25px;z-index:1}
+.mk-spinner-doublecircle{background:0 0;-moz-animation:rotate 2s linear infinite;-webkit-animation:rotate 2s linear infinite;animation:rotate 2s linear infinite;border-color:#1DE9B6 rgba(0,0,0,.07)}
+.mk-spinner-doublecircle:after{border-color:transparent #EEFF41;-moz-animation:rotate 6s linear infinite;-webkit-animation:rotate 6s linear infinite;animation:rotate 6s linear infinite}

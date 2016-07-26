@@ -1,6 +1,3 @@
-@import "../imports/_mixins.scss";
-@import "../animations/_rotate.scss";
-
 @mixin handles($weight: 10px){
 	width: $weight;
 	height: $weight;

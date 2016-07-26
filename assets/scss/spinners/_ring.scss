@@ -1,6 +1,3 @@
-@import "../imports/_mixins.scss";
-@import "../animations/_rotate.scss";
-
 .mk-spinner-ring{
 	@include center-position(50px);
 	border-radius: 50%;
