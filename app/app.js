@@ -25,6 +25,64 @@
             "name": "Boxes",
             "class": "mk-spinner-boxes"
         }];
+        var makeAlert = function(msg){
+            var alerts = document.getElementsByClassName('mk-alert');
+            var alert = null;
+
+            if(alerts.length!==0){
+                alert = alerts[0];
+            }else{
+                alert = document.createElement('DIV');
+                alert.setAttribute('class','mk-alert');
+                document.body.appendChild(alert);
+            }
+
+            alert.innerText = msg;
+            alert.style.display = "block";
+            var timer = 0;
+            var inter = setInterval(function(){
+                timer++;
+                if(timer ===2){
+                    alert.style.display = "none";
+                    timer = 0;
+                    clearInterval(inter);
+                }
+            }, 1000);
+        };
+        $scope.spinners.initCopy = function(last){
+            console.log("### Entered ###");
+            if(last){
+
+                var clipboard = new Clipboard('.btn-copy',  {
+                  text: function(trigger) {
+                    var target = angular.element(trigger).attr('data-clipboard-target');
+                    if(target){
+                        return document.getElementById(target.slice(1)).innerHTML.trim();
+                    }else{
+                        target = angular.element(trigger).attr('data-clipboard-text');
+                        return target;
+                    }
+                  }
+                });
+
+                clipboard.on('success', function(e) {
+                    console.log("SUCCESS");
+                    console.log(e);
+                    makeAlert('Copied!');
+                });
+
+                clipboard.on('error', function(e) {
+                    console.log("ERROR");
+                    console.log(e);
+                    makeAlert('Error occured while copying! Please try again.');
+                });
+            }
+        };
+        $scope.spinners.initCopy(true);
+        $scope.spinners.copyHTML = function(e){
+            console.log(e.text);
+            // console.log('<div class="'+ className +'"></div>');
+        };
     }]);
 
 })();

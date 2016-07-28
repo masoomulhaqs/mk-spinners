@@ -3,10 +3,8 @@
 
     compass = require('gulp-compass'),
     cleanCSS = require('gulp-clean-css'),
-    cssShorthand = require('gulp-shorthand'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    dedupe = require('gulp-dedupe'),
 
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload;
@@ -19,7 +17,7 @@
             }
         });
         gulp.watch("assets/scss/**/*.scss", ['compass']);
-        gulp.watch("*.html").on("change", reload);
+        gulp.watch("**/**/*.html").on("change", reload);
     });
 
     // SCSS Watcher & Compiler

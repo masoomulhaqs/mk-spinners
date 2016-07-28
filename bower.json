@@ -25,6 +25,7 @@
     "bootstrap": "^3.3.6",
     "clipboard": "^1.5.12",
     "font-awesome": "^4.6.3",
-    "angular": "^1.5.7"
+    "angular": "^1.5.7",
+    "ngclipboard": "^1.1.1"
   }
 }
