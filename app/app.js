@@ -25,6 +25,7 @@
             "name": "Boxes",
             "class": "mk-spinner-boxes"
         }];
+        var alertCounter, alertDelay = 2, alertInterval;
         var makeAlert = function(msg){
             var alerts = document.getElementsByClassName('mk-alert');
             var alert = null;
@@ -39,15 +40,24 @@
 
             alert.innerText = msg;
             alert.style.display = "block";
-            var timer = 0;
-            var inter = setInterval(function(){
-                timer++;
-                if(timer ===2){
-                    alert.style.display = "none";
-                    timer = 0;
-                    clearInterval(inter);
-                }
-            }, 1000);
+            if(alertCounter === undefined){
+                alertCounter = 0;
+            }
+            if(alertCounter>0){
+                alertCounter -= alertDelay;
+            }
+            console.log(alertCounter);
+            if(!alertInterval){
+                alertInterval = setInterval(function(){
+                    alertCounter++;
+                    if(alertCounter === alertDelay){
+                        alert.style.display = "none";
+                        clearInterval(alertInterval);
+                        alertCounter = 0;
+                        alertInterval = undefined;
+                    }
+                }, 1000);
+            }
         };
         $scope.spinners.initCopy = function(last){
             console.log("### Entered ###");
@@ -79,10 +89,6 @@
             }
         };
         $scope.spinners.initCopy(true);
-        $scope.spinners.copyHTML = function(e){
-            console.log(e.text);
-            // console.log('<div class="'+ className +'"></div>');
-        };
     }]);
 
 })();
