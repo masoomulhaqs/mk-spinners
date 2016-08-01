@@ -527,6 +527,7 @@ a:hover, a:focus {
   padding-right: 20px;
   position: relative;
   text-transform: uppercase;
+  font-size: 21px;
 }
 
 article ul {
