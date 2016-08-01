@@ -1,7 +1,4 @@
 @mixin center-position($w: 30px, $h: $w){
-	// @if(!$h){
-	// 	$h: $w;
-	// }
 	content: "";
 	display: inline-block;
 	position: absolute;

@@ -1,4 +1,5 @@
-/*### Animation mixins ###*/
+/**** MIXINS ****/
+/**** ANIMATIONS ****/
 @-moz-keyframes rotate {
   0% {
     -moz-transform: rotate(0deg);
@@ -33,6 +34,45 @@
     transform: rotate(360deg);
   }
 }
+/**** SPINNERS ****/
+.mk-spinner-ring {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  margin-top: -25px;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 1;
+  border-radius: 50%;
+  border: 3px solid #00BCD4;
+  border-left-color: transparent;
+  background: transparent;
+  -moz-animation: rotate 0.4s infinite linear;
+  -webkit-animation: rotate 0.4s infinite linear;
+  animation: rotate 0.4s infinite linear;
+}
+
+.mk-spinner-fan {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 0;
+  top: 50%;
+  margin-top: 0;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 1;
+  border: 3px solid #cebb17;
+  border-radius: 50%;
+  -moz-animation: rotate 0.35s infinite linear;
+  -webkit-animation: rotate 0.35s infinite linear;
+  animation: rotate 0.35s infinite linear;
+}
+
 @keyframes innerRipple {
   0% {
     transform: scale(0.9);
@@ -94,24 +134,6 @@
   border-color: #FFCA28 #EEFF41 #00BCD4 #1DE9B6;
   -moz-animation: rotate 0.4s infinite linear;
   -webkit-animation: rotate 0.4s infinite linear;
-  animation: rotate 0.4s infinite linear;
-}
-
-.mk-spinner-ring {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 50%;
-  margin-top: -25px;
-  left: 50%;
-  margin-left: -25px;
-  z-index: 1;
-  border-radius: 50%;
-  border: 3px solid #00BCD4;
-  border-left-color: transparent;
-  background: transparent;
   animation: rotate 0.4s infinite linear;
 }
 
@@ -184,25 +206,19 @@
 }
 
 @keyframes bubble {
-  0% {
+  0%, 100% {
     transform: scale(0);
   }
   50% {
     transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
   }
 }
 @keyframes reverseBubble {
-  0% {
+  0%, 100% {
     transform: scale(1);
   }
   50% {
     transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 .mk-spinner-bubbles:before, .mk-spinner-bubbles:after, .mk-spinner-bubbles {
@@ -290,6 +306,7 @@
   animation: slideThirdBox 3s infinite;
 }
 
+/**** PRETTY PRE TAG ****/
 pre {
   /* desert scheme ported from vim to google prettify */
   /* string  - pink */
@@ -441,6 +458,7 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
     color: #060;
   }
 }
+/**** COMPONENTS ****/
 [tooltip]:before, [tooltip]:after {
   position: absolute;
   bottom: 100%;
@@ -571,20 +589,20 @@ pre {
   position: relative;
 }
 .panel-box .panel-heading {
-  border-radius: 0;
-  background-color: #F21D41;
-  color: #ffffff;
-  color: rgba(255, 255, 255, 0.6);
-  border: 0;
   height: 40px;
+  margin-left: -5px;
+  margin-right: -5px;
   padding-top: 0;
   padding-bottom: 0;
-  line-height: 40px;
-  position: absolute;
+  position: relative;
   bottom: 5px;
-  left: -5px;
-  right: -5px;
   z-index: 10;
+  border: 0;
+  border-radius: 0;
+  line-height: 40px;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #F21D41;
 }
 .panel-box .panel-heading .btn-copy {
   color: inherit;

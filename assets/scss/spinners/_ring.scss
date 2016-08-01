@@ -3,7 +3,6 @@
 	border-radius: 50%;
 	border: 3px solid #00BCD4;
 	border-left-color: transparent;
-	// border-color: #FFCA28 #EEFF41 #00BCD4 #1DE9B6;
 	background: transparent;
-	animation: rotate 0.4s infinite linear;
+	@include animation(rotate 0.4s infinite linear);
 }

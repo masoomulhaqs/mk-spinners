@@ -6,6 +6,15 @@
         $scope.spinners.results = [{
             "name": "Ring",
             "class": "mk-spinner-ring"
+        },{
+            "name": "Fan",
+            "class": "mk-spinner-fan"
+        }, {
+            "name": "Bubbles",
+            "class": "mk-spinner-bubbles"
+        }, {
+            "name": "Boxes",
+            "class": "mk-spinner-boxes"
         }, {
             "name": "Pie",
             "class": "mk-spinner-pie"
@@ -18,12 +27,6 @@
         }, {
             "name": "Weight",
             "class": "mk-spinner-weight"
-        }, {
-            "name": "Bubbles",
-            "class": "mk-spinner-bubbles"
-        }, {
-            "name": "Boxes",
-            "class": "mk-spinner-boxes"
         }];
         var alertCounter, alertDelay = 2, alertInterval;
         var makeAlert = function(msg){
