@@ -68,20 +68,19 @@
 
                 var clipboard = new Clipboard('.btn-copy',  {
                   text: function(trigger) {
+
                     var target = angular.element(trigger).attr('data-clipboard-target');
-                    if(target){
-                        return document.getElementById(target.slice(1)).innerHTML.trim();
-                    }else{
-                        target = angular.element(trigger).attr('data-clipboard-text');
-                        return target;
-                    }
+                    target = (target)?document.getElementById(target.slice(1)).innerHTML.trim():angular.element(trigger).attr('data-clipboard-text');
+
+                    return target;
+                    
                   }
                 });
 
                 clipboard.on('success', function(e) {
                     console.log("SUCCESS");
                     console.log(e);
-                    makeAlert('Copied!');
+                    makeAlert(e.text);
                 });
 
                 clipboard.on('error', function(e) {

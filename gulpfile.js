@@ -225,11 +225,13 @@
     // START SERVER
     gulp.task('default', function(){
 
-        sequence('build', 'server');
+        sequence('server', 'build', reload);
 
         gulp.watch(paths.scss.src, function(cb){
             sequence('compass', 'copy:css', cb);
         });
+
+        gulp.watch(paths.js.src, ['js:build'], reload);
         
         gulp.watch("**/*.html").on("change", reload);
 
