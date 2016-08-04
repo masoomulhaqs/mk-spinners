@@ -168,13 +168,13 @@
     gulp.task('css:build', function(){
         console.log(paths.css.src);
         return gulp.src(paths.css.src)
+            // .pipe(uncss({
+            //     ignoreSheets: ["./assets/css/mk-spinners.css"],
+            //     html: [
+            //         "http://localhost:3000/"
+            //     ]
+            // }))
             .pipe(concat(paths.css.name))
-            .pipe(uncss({
-                ignoreSheets: ["./assets/css/mk-spinners.css"],
-                html: [
-                    "http://localhost:3000/"
-                ]
-            }))
             .pipe(cleanCSS({ keepSpecialComments : 0 }))
             .pipe(gulp.dest(paths.css.dest));
     });
@@ -199,6 +199,7 @@
     gulp.task('js:build', function(){
         return gulp.src(paths.js.src)
             .pipe(concat(paths.js.name))
+            .pipe(ngAnnotate())
             .pipe(uglify())
             .pipe(gulp.dest(paths.js.dest));
     });
@@ -208,7 +209,12 @@
     // BUILD FILE STRUCTURE
 
     gulp.task('build', function(cb){
-        sequence(['clean', 'clean:font:build'], ['copy:font:build'], 'js:build', 'compass', 'css:build', 'css:production', cb);
+        sequence(
+            ['clean', 'clean:font:build'],
+            ['copy:font:build'],
+            ['js:build', 'compass'],
+            ['css:build', 'css:production'],
+        cb);
     });
 
 
