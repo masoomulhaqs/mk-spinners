@@ -1,0 +1,10 @@
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/rotate";
+
+.mk-spinner-fan{
+	@include center-position(50px, 0);
+	border: 3px solid #cebb17;
+	border-radius: 50%;
+	animation: rotate 0.35s infinite linear;
+}

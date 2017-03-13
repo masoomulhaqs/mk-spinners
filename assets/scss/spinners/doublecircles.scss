@@ -1,0 +1,23 @@
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/rotate";
+
+.mk-spinner-doublecircle{
+	$oBorder: #1DE9B6;
+	$oAlternateBorder: rgba(#000, 0.07);
+	$iBorder: #EEFF41;
+	background: transparent;
+	animation: rotate 2s linear infinite;
+	&:after, &{
+		border: 3px solid;
+		border-radius: 50%;
+		@include center-position(50px);
+	}
+	&{
+		border-color: $oBorder $oAlternateBorder $oBorder $oAlternateBorder;
+	}
+	&:after{
+		border-color: transparent $iBorder transparent $iBorder;
+		animation: rotate 6s linear infinite;
+	}
+}

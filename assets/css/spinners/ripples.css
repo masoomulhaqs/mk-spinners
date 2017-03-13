@@ -1,9 +1,0 @@
-@keyframes innerRipple{0%{transform:scale(.9)}
-100%{transform:scale(1)}
-}
-@keyframes outerRipple{0%{transform:scale(.9)}
-100%{transform:scale(4)}
-}
-.mk-spinner-ripple:after,.mk-spinner-ripple:before{content:"";display:inline-block;position:absolute;width:20px;height:20px;top:50%;margin-top:-10px;left:50%;margin-left:-10px;z-index:1;border-radius:50%}
-.mk-spinner-ripple:before{background:#00796B;-moz-animation:innerRipple .6s infinite .3s;-webkit-animation:innerRipple .6s infinite .3s;animation:innerRipple .6s infinite .3s}
-.mk-spinner-ripple:after{background:#1DE9B6;z-index:0;transform:scale(3);-moz-animation:outerRipple .6s infinite .3s;-webkit-animation:outerRipple .6s infinite .3s;animation:outerRipple .6s infinite .3s}

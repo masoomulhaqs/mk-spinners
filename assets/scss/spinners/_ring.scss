@@ -1,8 +1,0 @@
-.mk-spinner-ring{
-	@include center-position(50px);
-	border-radius: 50%;
-	border: 3px solid #00BCD4;
-	border-left-color: transparent;
-	background: transparent;
-	@include animation(rotate 0.4s infinite linear);
-}

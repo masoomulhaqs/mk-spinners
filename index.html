@@ -1,110 +1,125 @@
 <!DOCTYPE html>
 <html data-ng-app="SpinnersApp">
+
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>MK Spinners/Loaders - New Spinners! New look! Only CSS! by Masoom Ulhaq S!</title>
-	<meta name="robots" content="index, nofollow">
-	<meta name="author" content="Masoom Ulhaq S">
+    <title>MK Spinners/Loaders - New Spinners! New look! Only CSS! by Masoom Ulhaq S!</title>
+    <meta name="robots" content="index, nofollow">
+    <meta name="author" content="Masoom Ulhaq S">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Less than 10kb!!! A new collection of amazing, light weight &amp; pure CSS spinners with easy code usage.">
-	<meta name="keywords" content="mk spinners new light weight less than 10kb spinner loader pure css sass minimal masoomulhaq masoom ulhaq shaik ui ux latest collection material ui design">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900' rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" href="./build/css/build.css" />
+    <meta name="description" content="Less than 10kb!!! A new collection of amazing, light weight &amp; pure CSS spinners with easy code usage.">
+    <meta name="keywords" content="mk spinners new light weight less than 10kb spinner loader pure css sass minimal masoomulhaq masoom ulhaq shaik ui ux latest collection material ui design">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="./build/css/build.css" />
 </head>
+
 <body data-ng-controller="MainCtrl">
-	<div class="container">
-		<h1 class="text-center">MK Spinners</h1>
-		<div class="row">
-			<div class="col-md-7">
-				<div class="title-section">
-					<h4>How we look</h4>
-				</div>
-				<div class="row">
-					<div class="col-md-6" data-ng-repeat="spinner in spinners.results">
-						<div data-ng-include="'./app/partials/spinner-box.html'"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-5">
-				<article>
-					<section>
-						<div class="title-section">
-							<h4>Easy if you know</h4>
-						</div>
-						<p>On click of:</p>
-						<ul class="list-info">
-							<li>
-								<i class="fa fa-html5"></i> Copies <abbr title="Hyper Text Markup Language">HTML</abbr> code
-							</li>
-							<li>
-								<i class="fa fa-css3"></i> Copies <abbr title="Cascading Style Sheets">CSS</abbr> code
-							</li>
-						</ul>
-						<p>for the respective spinner/loader.</p>
-					</section>
-					<section>
-						<div class="title-section">
-							<h4>Download spinner CSS</h4>
-						</div>
-						<ul>
-							<li><a download target="_blank" href="./src/mk-spinners.css"><i class="fa fa-download"></i>mk-spinners.css</a></li>
-							<li><a download target="_blank" href="./src/mk-spinners.min.css"><i class="fa fa-download"></i>mk-spinners.min.css</a></li>
-						</ul>
-						<p>Link this CSS file to you HTML.</p>
-					</section>
-					<section>
-						<div class="title-section">
-							<h4 class="text-uppercase">HTML USAGE</h4>
-						</div>
-						<p>Syntax</p>
-						<div data-ng-include="'./app/partials/pre-html-syntax.html'"></div>
-						<p>Example</p>
-						<div data-ng-include="'./app/partials/pre-html-example.html'"></div>
-					</section>
-					<section>
-						<div class="title-section">
-							<h4>Suggestions?</h4>
-						</div>
-						<p>Thank you for visiting my page. Please let me know if you have any suggestions regarding <strong>mk spinners</strong> <a href="mailto:contact@masoomulhaq.in?subject=SUGGESTION REGARDING MK SPINNERS">here</a>.</p>
-					</section>
-					<section>
-						<div class="title-section">
-							<h4>Developer's Bio</h4>
-						</div>
-						<p><strong>Masoom Ulhaq S</strong>, UX Engineer &amp; Frontend Developer. <a href="http://masoomulhaqs.github.io/#/gallery" target="_blank">checkout my work</a></p>
-						<ul class="list-inline">
-							<li><a target="_blank" href="https://twitter.com/smasoomulhaq">
-						            <i class="fa fa-twitter"></i>
-						        </a></li>
-							<li><a target="_blank" href="https://plus.google.com/u/0/113179001864450969005">
-						            <i class="fa fa-google-plus"></i>
-						        </a></li>
-							<li><a target="_blank" href="http://codepen.io/masoomulhaqs/">
-						            <i class="fa fa-codepen"></i>
-						        </a></li>
-							<li><a ng-href="https://github.com/masoomulhaqs" target="_blank" href="https://github.com/masoomulhaqs">
-						            <i class="fa fa-github"></i>
-						        </a></li>
-							<li><a target="_blank" href="https://in.linkedin.com/in/masoomulhaqs">
-						            <i class="fa fa-linkedin"></i>
-						        </a></li>
-						</ul>
-					</section>
-				</article>
-			</div>
-		</div>
-	</div>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <div class="container">
+        <h1 class="text-center">MK Spinners</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="title-section">
+                    <h4>How we look</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" data-ng-repeat="spinner in spinners.results">
+                        <div data-ng-include="'./app/partials/spinner-box.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <article>
+                    <section>
+                        <div class="title-section">
+                            <h4>Easy if you know</h4>
+                        </div>
+                        <p>On click of:</p>
+                        <ul class="list-info">
+                            <li>
+                                <i class="fa fa-html5"></i> Copies <abbr title="Hyper Text Markup Language">HTML</abbr> code
+                            </li>
+                            <li>
+                                <i class="fa fa-css3"></i> Downloads <abbr title="Cascading Style Sheets">CSS</abbr> file
+                            </li>
+                        </ul>
+                        <p>for the respective spinner.</p>
+                    </section>
+                    <section>
+                        <div class="title-section">
+                            <h4>Download spinner CSS</h4>
+                        </div>
+                        <ul>
+                            <li><a download target="_blank" href="./build/css/mk-spinners.css"><i class="fa fa-download"></i>mk-spinners.css</a></li>
+                            <li><a download target="_blank" href="./build/css/mk-spinners.min.css"><i class="fa fa-download"></i>mk-spinners.min.css</a></li>
+                        </ul>
+                        <p>Link this CSS file to you HTML.</p>
+                    </section>
+                    <section>
+                        <div class="title-section">
+                            <h4 class="text-uppercase">HTML USAGE</h4>
+                        </div>
+                        <p>Syntax</p>
+                        <div data-ng-include="'./app/partials/pre-html-syntax.html'"></div>
+                        <!-- <pre class="prettyprint linenums:1">&#x3C;div class=&#x22;{class-name}&#x22;&#x3E;&#x3C;/div&#x3E;</pre> -->
+                        <p>Example</p>
+                        <div data-ng-include="'./app/partials/pre-html-example.html'"></div>
+                        <!-- <pre class="prettyprint linenums:1">&#x3C;div class=&#x22;mk-spinner-wrap&#x22;&#x3E;
+                          &#x3C;div class=&#x22;mk-spinner-ring&#x22;&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;</pre> -->
+                    </section>
+                    <section>
+                        <div class="title-section">
+                            <h4>Suggestions?</h4>
+                        </div>
+                        <p>Thank you for visiting my page. Please let me know if you have any suggestions regarding <strong>mk spinners</strong> <a href="mailto:contact@masoomulhaq.in?subject=SUGGESTION REGARDING MK SPINNERS">here</a>.</p>
+                    </section>
+                    <section>
+                        <div class="title-section">
+                            <h4>Developer's Bio</h4>
+                        </div>
+                        <p><strong>Masoom Ulhaq S</strong>, UX Engineer &amp; Frontend Developer. <a href="http://masoomulhaqs.github.io/#/gallery" target="_blank">checkout my work</a></p>
+                        <ul class="list-inline">
+                            <li>
+                                <a target="_blank" href="https://twitter.com/smasoomulhaq">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://plus.google.com/u/0/113179001864450969005">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://codepen.io/masoomulhaqs/">
+                                    <i class="fa fa-codepen"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-href="https://github.com/masoomulhaqs" target="_blank" href="https://github.com/masoomulhaqs">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://in.linkedin.com/in/masoomulhaqs">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-85001069-4', 'auto');
-		ga('send', 'pageview');
-
-	</script>
-	<script src="./build/js/build.js"></script>
+        ga('create', 'UA-85001069-4', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src="./build/js/build.js"></script>
 </body>
+
 </html>

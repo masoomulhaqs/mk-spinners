@@ -1,63 +1,63 @@
-@include keyframes(mk-anim-default){
+@keyframes mk-anim-default{
     0% {
-    	@include transform(rotate(0deg));
+    	transform: rotate(0deg);
     }
     100% {
-    	@include transform(rotate(360deg));
+    	transform: rotate(360deg);
     }
 }
-@include keyframes(rotate){
+@keyframes rotate{
     0% {
-        @include transform(rotate(0deg));
+        transform: rotate(0deg);
     }
     100% {
-        @include transform(rotate(360deg));
+        transform: rotate(360deg);
     }
 }
-@include keyframes(mk-anim-sleek){
+@keyframes mk-anim-sleek{
     0% {
-    	@include transform(rotate(0deg));
+    	transform: rotate(0deg);
     }
     30% {
-    	@include transform(rotate(180deg));
+    	transform: rotate(180deg);
     }
     100% {
-    	@include transform(rotate(360deg));
+    	transform: rotate(360deg);
     }
 }
-@include keyframes(mk-anim-motion){
+@keyframes mk-anim-motion{
     0% {
-    	@include transform(rotate(0deg));
+    	transform: rotate(0deg);
     }
     50% {
-    	@include transform(rotate(90deg));
+    	transform: rotate(90deg);
     }
     100% {
-    	@include transform(rotate(360deg));
+    	transform: rotate(360deg);
     }
 }
-@include keyframes(mk-anim-motion-2){
+@keyframes mk-anim-motion-2{
     0% {
-    	@include transform(rotate(0deg));
+    	transform: rotate(0deg);
     }
     50% {
-    	@include transform(rotate(90deg));
+    	transform: rotate(90deg);
     }
     100% {
-    	@include transform(rotate(360deg));
+    	transform: rotate(360deg);
     }
 }
-@include keyframes(mk-anim-motion-3){
+@keyframes mk-anim-motion-3{
     0% {
-        // @include transform(rotate(0deg) scale(0.9));
-    	@include transform(scale(0.9));
+        // transform: rotate(0deg) scale(0.9);
+    	transform: scale(0.9);
     }
     50% {
-        // @include transform(rotate(180deg) scale(1));
-    	@include transform(scale(1));
+        // transform: rotate(180deg) scale(1);
+    	transform: scale(1);
     }
     100% {
-        // @include transform(rotate(360deg) scale(0.9));
-    	@include transform(scale(0.9));
+        // transform: rotate(360deg) scale(0.9);
+    	transform: scale(0.9);
     }
 }

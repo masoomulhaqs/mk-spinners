@@ -1,0 +1,22 @@
+@import "../imports/mixins";
+@import "../imports/common";
+@import "_ripplesAnimation.scss";
+
+.mk-spinner-ripple{
+	&:before, &:after{
+		@include center-position(20px);
+		border-radius: 50%;
+	}
+	&:before{
+		// INNER RIPPLE
+		background: #00796B;
+		animation: innerRipple 0.6s infinite 0.3s;
+	}
+	&:after{
+		// OUTER RIPPLE
+		background: #1DE9B6;
+		z-index: 0;
+		transform: scale(3);
+		animation: outerRipple 0.6s infinite 0.3s;
+	}
+}

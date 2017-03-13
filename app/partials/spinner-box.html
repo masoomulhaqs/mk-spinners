@@ -1,20 +1,20 @@
 <div class="panel panel-default panel-box">
 	<!-- data-ng-init="spinners.initCopy($last)" -->
     <div class="panel-body" id="{{spinner.class}}">
-        <div class="{{spinner.class}}"></div>
+        <div class="mk-spinner-wrap">
+          <div class="{{spinner.class}}"></div>
+        </div>
     </div>
     <div class="panel-heading">
         {{spinner.name}}
         <span class="pull-right panel-actions">
-			<a class="btn-copy" tooltip="Copy HTML"
-				data-clipboard-action="copy" 
+			<a class="btn-copy" tooltip="Copy {{spinner.name}} HTML"
+				data-clipboard-action="copy"
 				data-clipboard-target="#{{spinner.class}}">
 				<i class="fa fa-html5"></i>
 			</a>
-			<a class="btn-copy" 
-				tooltip="Copy CSS"
-				data-clipboard-action="copy"
-				data-clipboard-text="Sorry! Working on this">
+			<a class="btn-copy" data-ng-href="./build/css/spinners/{{spinner.file}}.css" target="_blank" download
+				tooltip="Download {{spinner.name}} CSS">
 				<i class="fa fa-css3"></i>
 			</a>
 		</span>

@@ -1,0 +1,86 @@
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.mk-spinner-wrap {
+  min-height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+@-webkit-keyframes bubble {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes bubble {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes reverseBubble {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes reverseBubble {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+.mk-spinner-bubbles:before, .mk-spinner-bubbles:after, .mk-spinner-bubbles {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.mk-spinner-bubbles:before {
+  left: -100%;
+  -webkit-animation: bubble 1s infinite;
+          animation: bubble 1s infinite;
+}
+
+.mk-spinner-bubbles {
+  opacity: 0.7;
+  background: #1DE9B6;
+}
+
+.mk-spinner-bubbles:after {
+  opacity: 0.5;
+  left: 200%;
+  -webkit-animation: reverseBubble 1s infinite;
+          animation: reverseBubble 1s infinite;
+}

@@ -1,8 +1,0 @@
-.mk-spinner-pie{
-	@include center-position(50px);
-	background: transparent;
-	border-radius: 50%;
-	border: 25px solid;
-	border-color: #FFCA28 #EEFF41 #00BCD4 #1DE9B6;
-	@include animation(rotate 0.4s infinite linear);
-}

@@ -1,0 +1,27 @@
+@import "../imports/mixins";
+@import "../imports/common";
+@import "_bubblesAnimation.scss";
+
+.mk-spinner-bubbles{
+	&:before, &:after, &{
+		@include center-position(20px);
+		border-radius: 50%;
+		background: inherit;
+	}
+	&:before{
+		// FIRST BUBBLE
+		left: -100%;
+		animation: bubble 1s infinite;
+	}
+	&{
+		// SECOND BUBBLE
+		opacity: 0.7;
+		background: #1DE9B6;
+	}
+	&:after{
+		// LAST BUBBLE
+		opacity: 0.5;
+		left: 200%;
+		animation: reverseBubble 1s infinite;
+	}
+}

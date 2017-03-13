@@ -5,27 +5,35 @@
         $scope.spinners = {};
         $scope.spinners.results = [{
             "name": "Ring",
+            "file": "ring",
             "class": "mk-spinner-ring"
         },{
             "name": "Fan",
+            "file": "fan",
             "class": "mk-spinner-fan"
         }, {
             "name": "Bubbles",
+            "file": "bubbles",
             "class": "mk-spinner-bubbles"
         }, {
             "name": "Boxes",
+            "file": "boxes",
             "class": "mk-spinner-boxes"
         }, {
             "name": "Pie",
+            "file": "pie",
             "class": "mk-spinner-pie"
         }, {
             "name": "Ripple",
+            "file": "ripples",
             "class": "mk-spinner-ripple"
         }, {
             "name": "Circles",
+            "file": "doublecircles",
             "class": "mk-spinner-doublecircle"
         }, {
             "name": "Weight",
+            "file": "weight",
             "class": "mk-spinner-weight"
         }];
         var alertCounter, alertDelay = 2, alertInterval;
@@ -73,14 +81,15 @@
                     target = (target)?document.getElementById(target.slice(1)).innerHTML.trim():angular.element(trigger).attr('data-clipboard-text');
 
                     return target;
-                    
+
                   }
                 });
 
                 clipboard.on('success', function(e) {
                     console.log("SUCCESS");
                     console.log(e);
-                    makeAlert(e.text);
+                    // makeAlert(e.text);
+                    makeAlert("Copied!");
                 });
 
                 clipboard.on('error', function(e) {

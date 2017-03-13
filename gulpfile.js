@@ -1,34 +1,32 @@
 (function() {
     var gulp = require('gulp'),
 
-    // SCSS, CSS & MINIFICATION 
-    compass = require('gulp-compass'),
+    // SCSS, CSS & MINIFICATION
+    autoprefixer = require('gulp-autoprefixer'),
+    sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
     sourcemaps = require('gulp-sourcemaps'),
-    uncss = require('gulp-uncss'),
+    plumber = require('gulp-plumber'),
 
-    // JS & JS MINIFICATION
-    jslint = require('jslint'),
+    // JS
     uglify = require('gulp-uglify'),
 
     // ANGULARJS
     ngAnnotate = require('gulp-ng-annotate'),
-    
+
     // UTILITIES
-    notify = require('gulp-notify'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    rimraf = require('rimraf'),
+    rimraf = require('gulp-rimraf'),
     sequence = require('run-sequence'),
 
     // SERVER & LIVE BROWSER RELOAD
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload,
-    
+
     basePaths = {
-        client: "./assets/",
+        src: "./assets/",
         build: "./build/",
-        production: "./src/",
         bower: "./bower_components/"
     },
     paths = {};
@@ -40,63 +38,115 @@
                 css: "assets/css",
                 sass: "assets/scss"
             },
-            src: [
-                basePaths.client + "scss/**/*.scss"
-            ],
-            dest: {
-                css: basePaths.client + "css/",
-                build: basePaths.build + "css/"
-            },
-            production: basePaths.production
+            src: basePaths.src + "scss/**/*.scss",
+            dest: basePaths.build + "css/"
         },
         css: {
             name: "build.css",
-            appFile:  basePaths.client + "css/mk-spinners.css",
             src: [
                 basePaths.bower + "bootstrap/dist/css/bootstrap.min.css",
                 basePaths.bower + "font-awesome/css/font-awesome.min.css",
-                basePaths.client + "css/mk-spinners.css"
+                basePaths.build + "css/mk-spinners.css",
+                basePaths.build + "css/layout.css",
             ],
             dest: basePaths.build + "css/"
         },
         js: {
             name: "build.js",
             src: [
-                basePaths.client + "js/run_prettify.js",
+                basePaths.src + "js/run_prettify.js",
                 basePaths.bower + "clipboard/dist/clipboard.min.js",
                 basePaths.bower + "angular/angular.min.js",
                 "./app/app.js"
             ],
             dest: basePaths.build + "js/"
         },
-        font: {
+        fonts: {
             base: "",
-            fonts: {
-                src: [
-                    basePaths.bower + "font-awesome/fonts/**"
-                ],
-                dest: basePaths.build + "fonts/"
-            }
-        },
-        copy: {
-            base: basePaths.client,
-            build: basePaths.build,
-            folders: {
-                css: basePaths.client + "css/**",
-                js: basePaths.client + "js/**",
-                images: basePaths.client + "images/**",
-                fonts: basePaths.client + "fonts/**",
-                data: basePaths.client + "data/**"
-            }
+            src: [
+                basePaths.bower + "font-awesome/fonts/**"
+            ],
+            dest: basePaths.build + "fonts/"
         }
     };
 
+    // CLEANS THE BUILD DIRECTORY
+    gulp.task('clean', function(cb) {
+        console.log("CLEAN");
+        return gulp.src(basePaths.build, {
+                read: false
+            })
+            .pipe(rimraf({
+                force: true
+            }));
+    });
 
+    // COPIES FONT IN BUILD
+    gulp.task('copy:fonts', function() {
+        return gulp.src(paths.fonts.src, {
+            base: paths.fonts.base
+        })
+        .pipe(gulp.dest(paths.fonts.dest));
+    });
 
+    // SCSS WATCHER & COMPILER
+    gulp.task('build:scss', function() {
+        var prefixOptions = {
+            // browsers: ['last 2 versions']
+        };
+        return gulp.src(paths.scss.src)
+            .pipe(plumber())
+            .pipe(sass({ outputStyle: 'expanded'}).on('error', sass.logError))
+            .pipe(autoprefixer(prefixOptions))
+            .pipe(plumber.stop())
+            .pipe(gulp.dest(paths.scss.dest))
+            .pipe(cleanCSS({ keepSpecialComments : 0, advanced: true }))
+            .pipe(rename(function (path) {
+              path.basename += ".min";
+            }))
+            .pipe(plumber.stop())
+            .pipe(gulp.dest(paths.scss.dest));
+    });
 
+    gulp.task('build:css', ["build:scss"], function(){
+        // console.log(paths.css.src);
+        return gulp.src(paths.css.src)
+            .pipe(concat(paths.css.name))
+            .pipe(cleanCSS({ keepSpecialComments : 0, advanced: true }))
+            .pipe(gulp.dest(paths.css.dest))
+            .pipe(browserSync.reload({ stream: true }));
+    });
+
+    gulp.task('build:js', function(){
+        return gulp.src(paths.js.src)
+            .pipe(plumber())
+            .pipe(concat(paths.js.name))
+            .pipe(ngAnnotate())
+            .pipe(uglify())
+            .pipe(plumber.stop())
+            .pipe(gulp.dest(paths.js.dest))
+            .pipe(browserSync.reload({ stream: true }));
+    });
+
+    // BUILD FILE STRUCTURE
+    gulp.task('build', function(cb){
+        sequence(
+            'clean',
+            ['copy:fonts', 'build:js', 'build:css'],
+        cb);
+    });
+
+    // WATCH FILES
+    gulp.task('watch', function(){
+
+      gulp.watch(paths.scss.src, ['build:css']);
+      gulp.watch(paths.js.src, ['build:js']);
+      gulp.watch("**/*.html").on("change", reload);
+
+    });
 
     // STATIC SERVER
-    gulp.task('server', function() {
+    gulp.task('server', ['build'], function() {
         browserSync.init({
             server: {
                 baseDir: "./"
@@ -104,141 +154,7 @@
         });
     });
 
-
-
-
-    // CLEANS THE BUILD DIRECTORY
-    gulp.task('clean', function(cb) {
-        console.log("CLEAN");
-        rimraf(paths.copy.build, cb);
-    });
-
-
-
-
-
-    // COPIES FONT FOR DEVELOPMENT
-    gulp.task('clean:font:build', function(cb) {
-        console.log("CLEAN FONT");
-        rimraf(paths.font.fonts.dest, cb);
-    });
-
-
-
-
-
-    // COPIES CSS IN BUILD
-    gulp.task('copy:css', function() {
-        return gulp.src(paths.copy.folders.css, {
-            base: paths.copy.base
-        })
-        .pipe(gulp.dest(paths.copy.build));
-    });
-
-
-
-
-
-    // COPIES FONT IN BUILD
-    gulp.task('copy:font:build', function() {
-        return gulp.src(paths.font.fonts.src, {
-            base: paths.font.base
-        })
-        .pipe(gulp.dest(paths.font.fonts.dest));
-    });
-
-
-
-
-
-    // SCSS WATCHER & COMPILER
-    gulp.task('compass', function() {
-        return gulp.src(paths.scss.src)
-            .pipe(compass({
-                css: paths.scss.compass.css,
-                sass: paths.scss.compass.sass,
-                require: ['compass', 'breakpoint', 'singularitygs'],
-                style: 'expanded'
-            }))
-            .pipe(gulp.dest(paths.scss.dest.css));
-    });
-
-
-    
-    gulp.task('css:build', function(){
-        console.log(paths.css.src);
-        return gulp.src(paths.css.src)
-            // .pipe(uncss({
-            //     ignoreSheets: ["./assets/css/mk-spinners.css"],
-            //     html: [
-            //         "http://localhost:3000/"
-            //     ]
-            // }))
-            .pipe(concat(paths.css.name))
-            .pipe(cleanCSS({ keepSpecialComments : 0 }))
-            .pipe(gulp.dest(paths.css.dest));
-    });
-
-
-
-
-
-
-    gulp.task('css:production', function(){
-        return gulp.src(paths.css.appFile)
-            .pipe(gulp.dest(paths.scss.production))
-            .pipe(rename(function (path) {
-                path.basename += ".min";
-            }))
-            .pipe(cleanCSS({ keepSpecialComments : 0 }))
-            .pipe(gulp.dest(paths.scss.production));
-    });
-
-
-
-    gulp.task('js:build', function(){
-        return gulp.src(paths.js.src)
-            .pipe(concat(paths.js.name))
-            .pipe(ngAnnotate())
-            .pipe(uglify())
-            .pipe(gulp.dest(paths.js.dest));
-    });
-
-
-
-    // BUILD FILE STRUCTURE
-
-    gulp.task('build', function(cb){
-        sequence(
-            ['clean', 'clean:font:build'],
-            ['copy:font:build'],
-            ['js:build', 'compass'],
-            ['css:build', 'css:production'],
-        cb);
-    });
-
-
-
-
-
-
     // START SERVER
-    gulp.task('default', function(){
-
-        sequence('server', 'build', reload);
-
-        gulp.watch(paths.scss.src, function(cb){
-            sequence('compass', 'copy:css', cb);
-        });
-
-        gulp.watch(paths.js.src, ['js:build'], reload);
-        
-        gulp.watch("**/*.html").on("change", reload);
-
-    });
-
-
-
-
+    gulp.task('default', ["server" , "watch"]);
 
 })();

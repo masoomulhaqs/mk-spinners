@@ -1,0 +1,27 @@
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/rotate";
+
+.mk-spinner-weight{
+	$color: #1DE9B6;
+	animation: rotate 1s infinite ease-in;
+	&{
+		@include center-position(50px, 2px);
+		background: $color;
+	}
+	&:before, &:after{
+		content: "";
+		position: absolute;
+		top: 50%;
+		border: 2px solid $color;
+		border-radius: 50%;
+	}
+	&:before{
+		@include handles(12px);
+		right: 100%;
+	}
+	&:after{
+		@include handles(16px);
+		left: 100%;
+	}
+}

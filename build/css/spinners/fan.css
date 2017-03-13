@@ -1,0 +1,48 @@
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.mk-spinner-wrap {
+  min-height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.mk-spinner-fan {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 0;
+  top: 50%;
+  margin-top: 0;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 1;
+  border: 3px solid #cebb17;
+  border-radius: 50%;
+  -webkit-animation: rotate 0.35s infinite linear;
+          animation: rotate 0.35s infinite linear;
+}

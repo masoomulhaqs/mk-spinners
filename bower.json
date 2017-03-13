@@ -1,7 +1,8 @@
 {
   "name": "mk-spinners",
+  "version": "1.0.0",
   "description": "Pure CSS spinners/loaders",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "authors": [
     "Masoom Ulhaq S"
   ],
@@ -27,5 +28,6 @@
     "font-awesome": "^4.6.3",
     "angular": "^1.5.7",
     "ngclipboard": "^1.1.1"
-  }
+  },
+  "dependencies": {}
 }
