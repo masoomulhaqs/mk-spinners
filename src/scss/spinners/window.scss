@@ -1,0 +1,35 @@
+@import "../imports/settings";
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/windowAnimation";
+
+$windowSide: 50px;
+$windowThemeColor: #B9D3B0;
+
+#{$spinnerSlug}-window{
+	@include center-position($windowSide);
+	background: $windowThemeColor;
+	// position: relative;
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		width: $windowSide/2;
+		height: $windowSide/2;
+		background: darken($windowThemeColor, 6);
+	}
+	&:before{
+		top: 0;
+		left: 0;
+		background: darken($windowThemeColor, 6);
+		background: rgba(#000, 0.1);
+		animation: windowBefore ($animationSpeedBase * 3) infinite linear;
+	}
+	&:after{
+		right: 0;
+		bottom: 0;
+		background: darken($windowThemeColor, 10);
+		background: rgba(#000, 0.2);
+		animation: windowAfter ($animationSpeedBase * 3) infinite linear;
+	}
+}

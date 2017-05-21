@@ -8,6 +8,10 @@
             "file": "bubbles",
             "class": "mk-spinner-bubbles"
         }, {
+            "name": "Window",
+            "file": "window",
+            "class": "mk-spinner-window"
+        }, {
             "name": "Ring",
             "file": "ring",
             "class": "mk-spinner-ring"
