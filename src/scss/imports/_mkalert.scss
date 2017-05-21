@@ -1,0 +1,17 @@
+$alertBg: #F21D41;
+$alertColor: #fefefe;
+.mk-alert{
+	position: fixed;
+	min-width: 150px;
+	left: 0;
+	top: 0;
+	margin-right: 10px;
+	padding: 1.7rem 2em;
+	background: $alertBg;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+	text-align: center;
+	line-height: 1;
+	z-index: 1040;
+	color: $alertColor;
+	border-bottom-right-radius: 6px;
+}

@@ -23,17 +23,18 @@
   },
   "homepage": "https://github.com/masoomulhaqs/mk-spinners#readme",
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "browser-sync": "^2.11.1",
+    "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean-css": "^2.0.3",
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-pretty-data": "^0.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "run-sequence": "^1.2.2"
   }

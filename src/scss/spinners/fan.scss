@@ -1,0 +1,11 @@
+@import "../imports/settings";
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/rotate";
+
+#{$spinnerSlug}-fan{
+	@include center-position(50px, 0);
+	border: 3px solid #cebb17;
+	border-radius: 50%;
+	animation: rotate 0.8s infinite linear;
+}

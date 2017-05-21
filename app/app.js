@@ -4,17 +4,17 @@
         console.log('Main');
         $scope.spinners = {};
         $scope.spinners.results = [{
-            "name": "Ring",
-            "file": "ring",
-            "class": "mk-spinner-ring"
-        },{
-            "name": "Fan",
-            "file": "fan",
-            "class": "mk-spinner-fan"
-        }, {
             "name": "Bubbles",
             "file": "bubbles",
             "class": "mk-spinner-bubbles"
+        }, {
+            "name": "Ring",
+            "file": "ring",
+            "class": "mk-spinner-ring"
+        }, {
+            "name": "Fan",
+            "file": "fan",
+            "class": "mk-spinner-fan"
         }, {
             "name": "Boxes",
             "file": "boxes",
@@ -74,7 +74,7 @@
             console.log("### Entered ###");
             if(last){
 
-                var clipboard = new Clipboard('.btn-copy',  {
+                var clipboard = new Clipboard('.js-btn-copy',  {
                   text: function(trigger) {
 
                     var target = angular.element(trigger).attr('data-clipboard-target');

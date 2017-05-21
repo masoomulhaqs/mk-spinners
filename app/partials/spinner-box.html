@@ -8,12 +8,12 @@
     <div class="panel-heading">
         {{spinner.name}}
         <span class="pull-right panel-actions">
-			<a class="btn-copy" tooltip="Copy {{spinner.name}} HTML"
+			<a class="btn-copy js-btn-copy" tooltip="Copy {{spinner.name}} HTML"
 				data-clipboard-action="copy"
 				data-clipboard-target="#{{spinner.class}}">
 				<i class="fa fa-html5"></i>
 			</a>
-			<a class="btn-copy" data-ng-href="./build/css/spinners/{{spinner.file}}.css" target="_blank" download
+			<a class="btn-copy" data-ng-href="./dist/css/spinners/{{spinner.file}}.css" target="_blank" download
 				tooltip="Download {{spinner.name}} CSS">
 				<i class="fa fa-css3"></i>
 			</a>

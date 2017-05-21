@@ -1,0 +1,30 @@
+@import "../imports/settings";
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/boxesAnimation";
+
+#{$spinnerSlug}-boxes{
+	&:before, &:after, &{
+		@include center-position(20px);
+	}
+	&{
+		// SECOND BUBBLE
+		background: #1DE9B6;
+	}
+	&:before, &:after{
+		margin-left: 0;
+		background: inherit;
+	}
+	&:before{
+		// FIRST BUBBLE
+		opacity: 0.5;
+		left: 100%;
+		animation: slideSecondBox ($animationSpeedBase * 2) infinite ($animationSpeedBase * 2);
+	}
+	&:after{
+		// LAST BUBBLE
+		opacity: 0.2;
+		left: 200%;
+		animation: slideThirdBox ($animationSpeedBase * 2) infinite;
+	}
+}

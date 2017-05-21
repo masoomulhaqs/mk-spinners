@@ -2,11 +2,12 @@
     var gulp = require('gulp'),
 
     // SCSS, CSS & MINIFICATION
-    autoprefixer = require('gulp-autoprefixer'),
+    autoprefixer = require('autoprefixer'),
     sass = require('gulp-sass'),
-    cleanCSS = require('gulp-clean-css'),
-    sourcemaps = require('gulp-sourcemaps'),
+    postcss = require('gulp-postcss'),
+    cssnano = require('cssnano'),
     plumber = require('gulp-plumber'),
+    prettyData = require('gulp-pretty-data'),
 
     // JS
     uglify = require('gulp-uglify'),
@@ -25,9 +26,11 @@
     reload = browserSync.reload,
 
     basePaths = {
-        src: "./assets/",
-        build: "./build/",
-        bower: "./bower_components/"
+        src: "./src/",
+        build: "./dist/",
+        bower: "./bower_components/",
+        app: "./app/",
+        public: "./"
     },
     paths = {};
 
@@ -35,8 +38,8 @@
     paths = {
         scss: {
             compass: {
-                css: "assets/css",
-                sass: "assets/scss"
+                css: basePaths.src + "css",
+                sass:  basePaths.src + "scss"
             },
             src: basePaths.src + "scss/**/*.scss",
             dest: basePaths.build + "css/"
@@ -46,8 +49,8 @@
             src: [
                 basePaths.bower + "bootstrap/dist/css/bootstrap.min.css",
                 basePaths.bower + "font-awesome/css/font-awesome.min.css",
-                basePaths.build + "css/mk-spinners.css",
                 basePaths.build + "css/layout.css",
+                basePaths.build + "css/mk-spinners.css",
             ],
             dest: basePaths.build + "css/"
         },
@@ -57,7 +60,7 @@
                 basePaths.src + "js/run_prettify.js",
                 basePaths.bower + "clipboard/dist/clipboard.min.js",
                 basePaths.bower + "angular/angular.min.js",
-                "./app/app.js"
+                basePaths.app + "app.js"
             ],
             dest: basePaths.build + "js/"
         },
@@ -72,10 +75,7 @@
 
     // CLEANS THE BUILD DIRECTORY
     gulp.task('clean', function(cb) {
-        console.log("CLEAN");
-        return gulp.src(basePaths.build, {
-                read: false
-            })
+        return gulp.src(basePaths.build, { read: false })
             .pipe(rimraf({
                 force: true
             }));
@@ -90,29 +90,46 @@
     });
 
     // SCSS WATCHER & COMPILER
+
+    var prefixOptions = {
+        // browsers: ['last 2 versions']
+    };
+
+    var cssnanoOptions = {
+        discardComments: {
+            removeAll: true
+        },
+        minifySelectors: true
+    };
+
+    var processors = [
+      autoprefixer(prefixOptions),  // ADDS CSS PREFIXES
+      cssnano(cssnanoOptions) // MINIFIES
+    ];
+
+
     gulp.task('build:scss', function() {
-        var prefixOptions = {
-            // browsers: ['last 2 versions']
-        };
         return gulp.src(paths.scss.src)
             .pipe(plumber())
-            .pipe(sass({ outputStyle: 'expanded'}).on('error', sass.logError))
-            .pipe(autoprefixer(prefixOptions))
-            .pipe(plumber.stop())
-            .pipe(gulp.dest(paths.scss.dest))
-            .pipe(cleanCSS({ keepSpecialComments : 0, advanced: true }))
+            .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+            .pipe(postcss(processors))
             .pipe(rename(function (path) {
               path.basename += ".min";
+            }))
+            .pipe(plumber.stop())
+            .pipe(gulp.dest(paths.scss.dest))
+            .pipe(prettyData({type: 'prettify'}))
+            .pipe(rename(function (path) {
+              path.basename = path.basename.replace(".min", "");
             }))
             .pipe(plumber.stop())
             .pipe(gulp.dest(paths.scss.dest));
     });
 
     gulp.task('build:css', ["build:scss"], function(){
-        // console.log(paths.css.src);
         return gulp.src(paths.css.src)
             .pipe(concat(paths.css.name))
-            .pipe(cleanCSS({ keepSpecialComments : 0, advanced: true }))
+            .pipe(postcss(processors))
             .pipe(gulp.dest(paths.css.dest))
             .pipe(browserSync.reload({ stream: true }));
     });
@@ -149,7 +166,7 @@
     gulp.task('server', ['build'], function() {
         browserSync.init({
             server: {
-                baseDir: "./"
+                baseDir: basePaths.public
             }
         });
     });
