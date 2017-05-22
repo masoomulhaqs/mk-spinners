@@ -1,35 +1,31 @@
 @keyframes windowBefore {
-    0%,
-    5% {
+    0%, 5%{
         left: 0;
         top: 0;
     }
 
-    50%,
-    45% {
+    50%, 55% {
         left: 50%;
         top: 50%;
     }
-    95%,
-    100% {
+
+    95%, 100% {
         left: 0;
         top: 0;
     }
 }
 @keyframes windowAfter {
-    0%,
-    5% {
+    0%, 5% {
         right: 0;
         bottom: 0;
     }
 
-    50%,
-    45% {
+    50%, 55% {
         right: 50%;
         bottom: 50%;
     }
-    95%,
-    100% {
+
+    95%, 100% {
         right: 0;
         bottom: 0;
     }

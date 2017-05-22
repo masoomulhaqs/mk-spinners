@@ -3,8 +3,8 @@
 @import "../imports/common";
 @import "../animations/windowAnimation";
 
-$windowSide: 50px;
-$windowThemeColor: #B9D3B0;
+$windowSide: 36px;
+$windowThemeColor: #82b3ae;
 
 #{$spinnerSlug}-window{
 	@include center-position($windowSide);

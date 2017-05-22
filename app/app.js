@@ -16,13 +16,17 @@
             "file": "ring",
             "class": "mk-spinner-ring"
         }, {
-            "name": "Fan",
-            "file": "fan",
-            "class": "mk-spinner-fan"
+            "name": "Dots",
+            "file": "dots",
+            "class": "mk-spinner-dots"
         }, {
             "name": "Boxes",
             "file": "boxes",
             "class": "mk-spinner-boxes"
+        }, {
+            "name": "Fan",
+            "file": "fan",
+            "class": "mk-spinner-fan"
         }, {
             "name": "Pie",
             "file": "pie",

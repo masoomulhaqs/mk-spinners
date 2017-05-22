@@ -1,0 +1,37 @@
+@import "../imports/settings";
+@import "../imports/mixins";
+@import "../imports/common";
+@import "../animations/dotZoomoutAnimation";
+
+#{$spinnerSlug}-dots{
+	&:before, &:after, &{
+		@include center-position(12px);
+		border-radius: 50%;
+		background: inherit;
+		transform-origin: center;
+		// animation: dotZoomout 1.5s infinite;
+		animation-name: dotZoomout;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
+	}
+	&:before{
+		// FIRST BUBBLE
+		left: -100%;
+		animation-delay: 0.5s;
+		// opacity: 0.4;
+		background: #1DE9B6;
+	}
+	&{
+		background: rgba(#1DE9B6, 0.6);
+	}
+	&:after{
+		// LAST BUBBLE
+		// opacity: 0.8;
+		left: 200%;
+		animation-delay: 1s;
+			background: rgba(#1DE9B6, 0.3);
+		// opacity: 0.6;
+	}
+}
